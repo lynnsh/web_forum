@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebForum.Models.Thread>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@if (User.Identity.IsAuthenticated) {
+    <div id="hello">Hello <span id="hello-user">@User.Identity.Name</span>!</div>
+}
+
+<h2>Latest threads:</h2>
+<p class="btn btn-primary btn-md" id="create">
+    @Html.ActionLink("Create New Thread", "Create")
+</p>
+
+
+@foreach (var item in Model)
+{
+    <div class="well">
+        <h4>@Html.DisplayFor(modelItem => item.thread_title) </h4>
+        date: <span class="badge" id="index-date">
+            @Html.DisplayFor(modelItem => item.thread_date) </span><br />
+            user: <span id="user" class="badge">
+                @Html.DisplayFor(modelItem => item.username)
+            </span><br />
+            @if (item.Tags.Count != 0)
+            {
+                <div>
+                    <span>tags: </span>
+                    @foreach (var t in item.Tags.Take(5))
+                    {
+                        <span class="badge" id="green">@Html.DisplayFor(modelItem => t.tag_name)</span>
+                    }
+                </div>
+            }
+            <p>
+                @Html.ActionLink("Details", "Details", new { id = item.thread_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+            </p>
+        </div>
+}
+
+

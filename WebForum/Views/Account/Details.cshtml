@@ -1,0 +1,59 @@
+﻿@model WebForum.Models.User
+
+@{
+    ViewBag.Title = "User Details";
+}
+
+<h2>User Details</h2>
+
+<div>
+    <h4>@User.Identity.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.first_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.interests)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.interests)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.favourite_quote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.favourite_quote)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <span class="btn btn-default btn-md">@Html.ActionLink("Edit", "Edit", new { id = Model.username }) </span>
+    <span class="btn btn-primary btn-md">@Html.ActionLink("Back to Home", "Index", "Home")</span>
+</p>

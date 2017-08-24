@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ForumEntities">
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="Model.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+          <ScalarProperty Name="comment_date" ColumnName="comment_date" />
+          <ScalarProperty Name="comment_text" ColumnName="comment_text" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+          <ScalarProperty Name="parent_comment_id" ColumnName="parent_comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="Model.Tag">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Threads">
+      <EntityTypeMapping TypeName="Model.Thread">
+        <MappingFragment StoreEntitySet="Threads">
+          <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+          <ScalarProperty Name="thread_title" ColumnName="thread_title" />
+          <ScalarProperty Name="thread_date" ColumnName="thread_date" />
+          <ScalarProperty Name="thread_text" ColumnName="thread_text" />
+          <ScalarProperty Name="thread_views" ColumnName="thread_views" />
+          <ScalarProperty Name="thread_upvotes" ColumnName="thread_upvotes" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
+          <ScalarProperty Name="interests" ColumnName="interests" />
+          <ScalarProperty Name="favourite_quote" ColumnName="favourite_quote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Thread_Tag" TypeName="Model.Thread_Tag" StoreEntitySet="Thread_Tag">
+      <EndProperty Name="Tags">
+        <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+      </EndProperty>
+      <EndProperty Name="Threads">
+        <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

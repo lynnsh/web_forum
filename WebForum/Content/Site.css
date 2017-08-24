@@ -1,0 +1,166 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+#search{
+    display:inline;
+    margin: 15px;
+}
+
+div .well{
+    width: 500px;
+    opacity:0.7;
+    color:white;
+    border: 2px solid #003326;
+    background-color: #080808;
+}
+
+#upvotes{
+    margin-top:10px;
+    margin-left: 12px;
+    color: #33ff99;
+}
+
+#thread{
+    width: 750px;
+}
+
+.btn-primary a, .btn-primary a:hover{
+    color:black;
+    text-decoration:none;
+}
+
+.btn-default a, .btn-default a:hover{
+    text-decoration:none;
+}
+
+.btn{
+    margin-top:10px;
+}
+
+#tag{
+    margin-top:0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+#date, #views, #user{
+    padding:1%;
+    margin-bottom:20px;
+    background-color: #33ff99;
+    color:black;
+}
+
+#views{
+    margin:0;
+    color:black;
+}
+
+#index-date{
+    padding:1%;
+    background-color:#33ff99;
+    margin-top:1%;
+    margin-bottom:1%;
+    color:black;
+}
+
+#user{
+    background-color: #00664d;
+    margin-bottom:5px;
+    color:white;
+}
+
+#create{
+    margin-bottom:20px;
+}
+html, body {
+    background-image: url("background.png");
+    color: white;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 1em !important;
+}
+
+h1,h2,h3, h4{
+    color: #00cc99;
+    font-family: 'Ubuntu' !important;
+}
+
+#green{
+    background-color: #00cc99;
+    color:black;
+}
+
+#green-font, #search{
+    color: #00664d;
+}
+
+.dl-horizontal{
+    padding: 10px;
+    color: white;
+}
+
+label, footer{
+    color: white;
+}
+
+#details-btn{
+    margin-bottom: 2%;
+}
+
+.btn-warning{
+    color:white;
+}
+
+#black{
+    color:black;
+}
+
+.well .well{
+    opacity: 1;
+    border: 2px solid #003326;
+}
+
+#key{
+    color: #00cc99;
+    font-size: large;
+}
+
+#search{
+    margin-top: 2%;
+}
+
+#hello{
+    margin-top:2%;
+    margin-bottom:2%;
+}
+
+#hello, #hello-user{
+    font-size:large;
+    color: white;
+}
+
+#hello-user {
+    color: #00cc99;
+}
+
+
+

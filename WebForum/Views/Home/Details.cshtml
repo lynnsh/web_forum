@@ -1,0 +1,92 @@
+﻿@model WebForum.Models.Thread
+
+@{
+    ViewBag.Title = "Details - " + Model.thread_title;
+}
+
+<h2>@Model.thread_title</h2>
+<hr />
+<div class="col-sm-1">
+    @Html.ActionLink("↑", "Vote", new { threadid = Model.thread_id, vote = 0 }, new { @class = "btn btn-default btn-md", @id="green-font" }) <br />
+    <div id="upvotes">@Model.thread_upvotes</div> 
+    @Html.ActionLink("↓", "Vote", new { threadid = Model.thread_id, vote = 1 }, new { @class = "btn btn-default btn-md", @id = "green-font" })
+
+</div>
+<div class="col-sm-11">
+    <div class="well" id="thread">
+        <p class="well">@Model.thread_text</p>
+
+        <div class="badge" id="date">@Model.thread_date</div>
+        <br />
+        <p>
+            @if (@Model.Tags.Count != 0)
+            {
+                <span>tags:</span>
+            }
+            @foreach (var item in @Model.Tags.Take(5))
+            {
+                <span class="badge" id="green">@Html.DisplayFor(i => item.tag_name)</span>
+            }
+        </p>
+
+        <p>viewed <span class="badge" id="views">@Model.thread_views</span> 
+            time@(Model.thread_views != 1 ?"s" : "")</p>
+        <div>
+            <span id="user" class="badge">@Model.username</span>
+        </div>
+
+        @Html.ActionLink("Edit", "Edit", new { id = @Model.thread_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+        @Html.ActionLink("Delete", "Delete", new { id = @Model.thread_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+        @Html.ActionLink("Comment", "Reply", "Comments", new { threadid = Model.thread_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+    </div>
+
+
+    <ul>
+        @ViewComments(ViewBag.List)
+    </ul>
+
+    <p class="btn btn-primary btn-md" id="details-btn"> @Html.ActionLink("Back to Home", "Index")</p>
+</div>
+
+@helper ViewComments(ICollection<WebForum.Models.Comment> thread)
+{
+    foreach (var comment in thread)
+    {
+        <li>
+            @if (comment.Comments1.Count() == 0)
+            {
+                <div class="well">
+                    <span class="leaf">
+
+                        @comment.comment_text
+                        <br />
+                        @Html.ActionLink("Comment", "Reply", "Comments", new { threadid = Model.thread_id, commentid = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+                        @Html.ActionLink("Details", "Details", "Comments", new { id = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+                        @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+                        @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+
+
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="well">
+                    <span class="composite">
+                        @comment.comment_text
+                        <br />
+                        @Html.ActionLink("Comment", "Reply", "Comments", new { threadid = Model.thread_id, commentid = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+                        @Html.ActionLink("Details", "Details", "Comments", new { id = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+                        @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+                        @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.comment_id }, new { @class = "btn btn-success btn-xs", @id = "black" })
+
+
+                    </span>
+                </div>
+                <ul>
+                    @ViewComments(comment.Comments1)
+                </ul>
+            }
+        </li>
+    }
+}

@@ -1,0 +1,54 @@
+﻿@model WebForum.Models.Comment
+
+@{
+    ViewBag.Title = "Comment Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment_text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment_text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thread.thread_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thread.thread_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment_date)
+        </dd>
+
+         <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <span class="btn btn-default btn-md">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.comment_id }) </span>
+    <span class="btn btn-primary btn-md">
+        @Html.ActionLink("Back to List", "Details", "Home", new { id = Model.thread_id }, null)</span>
+</p>
